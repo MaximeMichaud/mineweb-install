@@ -30,3 +30,5 @@ Le script supporte ces OS:
 * Let's Encrypt
 * mysql_secure_installation (automatique)
 * Supporté Debian 8, Ubuntu 16.04 & 18.04
+## FAQ
+**MERCI DE REGARDER LE WIKI [WIKI](https://github.com/fightmaxime/mineweb-install/wiki/FAQ)
