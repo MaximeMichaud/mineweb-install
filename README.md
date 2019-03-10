@@ -1,5 +1,5 @@
 # MineWeb-install
-...
+[![Travis CI](https://travis-ci.com/fightmaxime/mineweb-install.svg?branch=master)](https://travis-ci.com/fightmaxime/mineweb-install)
 ## Usage
 ```sh
 wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/master/mineweb-install.sh
