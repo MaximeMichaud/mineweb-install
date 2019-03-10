@@ -31,4 +31,4 @@ Le script supporte ces OS:
 * mysql_secure_installation (automatique)
 * Supporté Debian 8, Ubuntu 16.04 & 18.04
 ## FAQ
-**MERCI DE REGARDER LE [WIKI](https://github.com/fightmaxime/mineweb-install/wiki/FAQ)
+**MERCI DE REGARDER LE [WIKI](https://github.com/fightmaxime/mineweb-install/wiki/FAQ)**
