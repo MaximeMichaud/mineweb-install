@@ -44,12 +44,12 @@ case $OPTION in
 		service apache2 restart
 		apt install zip -y
 		rm -rf /var/www/html/
-		wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		mv *.zip /var/www/
 		cd /var/www/
-		unzip *.zip
-		rm -rf *.zip
-		mv MineWebCMS-1.7.0 /var/www/html
+		unzip MineWebCMS-master
+		rm -rf MineWebCMS-master
+		mv MineWebCMS-master /var/www/html
 		chmod -R 777 /var/www/html
 	;;
 	2)
