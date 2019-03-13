@@ -47,7 +47,7 @@ case $OPTION in
 		wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		mv *.zip /var/www/
 		cd /var/www/
-		unzip MineWebCMS-master
+		unzip master
 		rm -rf MineWebCMS-master
 		mv MineWebCMS-master /var/www/html
 		chmod -R 777 /var/www/html
