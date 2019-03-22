@@ -2,4 +2,3 @@ language: shell
 
 script:
   - shellcheck -e SC2164 mineweb-install.sh
-  
