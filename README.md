@@ -24,7 +24,7 @@ Le script supporte ces OS:
 * phpMyAdmin 4.8.5
 ## To-Do
 * Choix de la version MineWeb
-* phpMyAdmin à la dernière version
+* ~~phpMyAdmin à la dernière version~~
 * Php 7.3, puisqu'il est supporté depuis [#5](https://github.com/MineWeb/MineWebCMS/pull/5/),  [#100](https://github.com/MineWeb/MineWebCMS/pull/100/)
 * Possibilité de choisir nginx au lieu de apache2
 * Let's Encrypt
