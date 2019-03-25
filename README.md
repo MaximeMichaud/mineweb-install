@@ -30,6 +30,6 @@ Le script supporte ces OS:
 * Possibilité de choisir nginx au lieu de apache2
 * Let's Encrypt
 * mysql_secure_installation (automatique)
-* Supporté ~~Debian 8, Ubuntu 16.04 & 18.04~~
+* ~~Supporté Debian 8, Ubuntu 16.04 & 18.04~~
 ## FAQ
 **MERCI DE REGARDER LE [WIKI](https://github.com/fightmaxime/mineweb-install/wiki/FAQ)**
