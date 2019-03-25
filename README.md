@@ -7,12 +7,13 @@ chmod +x mineweb-install.sh
 ./mineweb-install.sh
 ```
 ## Compatibilité
+Veuillez considérer les dernières versions comme étant plus stable.
 
 Le script supporte ces OS:
 
 |        |   |
 |--------|---|
-| Debian 8 | ❌  |
+| Debian 8 | ✅  |
 | Debian 9 | ✅ |
 | Ubuntu 16.04 | ❌  |
 | Ubuntu 18.04 | ❌  |
@@ -21,14 +22,14 @@ Le script supporte ces OS:
 ## Features
 * MySQL 5.7
 * PHP 7.2
-* phpMyAdmin
+* phpMyAdmin 4.8.5
 ## To-Do
-* Choix de la version MineWeb
-* phpMyAdmin à la dernière version
+* Choix de la version MineWeb & PHP
+* ~~phpMyAdmin à la dernière version~~
 * Php 7.3, puisqu'il est supporté depuis [#5](https://github.com/MineWeb/MineWebCMS/pull/5/),  [#100](https://github.com/MineWeb/MineWebCMS/pull/100/)
 * Possibilité de choisir nginx au lieu de apache2
 * Let's Encrypt
 * mysql_secure_installation (automatique)
-* Supporté Debian 8, Ubuntu 16.04 & 18.04
+* Supporté ~~Debian 8~~, Ubuntu 16.04 & 18.04
 ## FAQ
 **MERCI DE REGARDER LE [WIKI](https://github.com/fightmaxime/mineweb-install/wiki/FAQ)**
