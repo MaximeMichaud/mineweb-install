@@ -8,6 +8,7 @@ chmod +x mineweb-install.sh
 ```
 ## Compatibilité
 Veuillez considérer les dernières versions comme étant plus stable.
+
 Le script supporte ces OS:
 
 |        |   |
