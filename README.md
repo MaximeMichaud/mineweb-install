@@ -19,6 +19,7 @@ Le script supporte ces OS:
 | CentOS 7 | ❌  |
 | Fedora 28 | ❌  |
 ## Features
+* Apache 2.4.38
 * MySQL 5.7
 * PHP 7.2
 * phpMyAdmin 4.8.5
