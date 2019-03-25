@@ -20,10 +20,10 @@ Le script supporte ces OS:
 | CentOS 7 | ❌  |
 | Fedora 28 | ❌  |
 ## Features
-* Apache 2.4.38
 * MySQL 5.7
 * PHP 7.2
 * phpMyAdmin 4.8.5
+* Apache 2.4.38 (Ubuntu only)
 ## To-Do
 * Choix de la version MineWeb & PHP
 * ~~phpMyAdmin à la dernière version~~
