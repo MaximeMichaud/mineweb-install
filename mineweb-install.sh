@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Installation automatique pour MineWeb
+# https://github.com/fightmaxime/mineweb-install
+
 if [[ "$EUID" -ne 0 ]]; then
 	echo -e "Désolé, vous devez l'exécuter en tant que root."
 	exit 1
