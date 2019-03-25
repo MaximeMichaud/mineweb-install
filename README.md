@@ -15,8 +15,8 @@ Le script supporte ces OS:
 |--------|---|
 | Debian 8 | ✅  |
 | Debian 9 | ✅ |
-| Ubuntu 16.04 | ❌  |
-| Ubuntu 18.04 | ❌  |
+| Ubuntu 16.04 | ✅  |
+| Ubuntu 18.04 | ✅  |
 | CentOS 7 | ❌  |
 | Fedora 28 | ❌  |
 ## Features
