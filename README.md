@@ -23,7 +23,6 @@ Le script supporte ces OS:
 * MySQL 5.7
 * PHP 7.2
 * phpMyAdmin 4.8.5
-* Apache 2.4.38 (Ubuntu only)
 ## To-Do
 * Choix de la version MineWeb & PHP
 * ~~phpMyAdmin à la dernière version~~
