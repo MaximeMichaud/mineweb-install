@@ -139,7 +139,7 @@ function installMineWeb () {
 		fi
 		if [[ "$VERSION_ID" = "9" ]]; then
 		    apt update
-		    apt -y install ca-certificates apt-transport-https dirmngr
+		    apt -y install ca-certificates apt-transport-https dirmngr unzip
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	            ls mysql-apt-config_0.8.8-1_all.deb
 	            dpkg -i mysql-apt-config_0.8.8-1_all.deb
