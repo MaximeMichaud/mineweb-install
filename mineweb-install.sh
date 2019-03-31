@@ -152,7 +152,7 @@ function installMineWeb () {
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 	        echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/php.list
 	        apt update
-	        apt install php$php libapache2-mod-php$php php$php-mysql php$php-curl php$php-json php$php-gd php$php-memcached php$php-intl php$php-sqlite3 php$php-gmp php$php-geoip php$php-mbstring php$php-xml php$php-zip -y
+	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
 		    apt install phpmyadmin -y
 		    rm -rf /usr/share/phpmyadmin/
@@ -197,7 +197,7 @@ function installMineWeb () {
 	        echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
 	        apt update
 		    #mem-cached et geoip à check
-	        apt install php$php libapache2-mod-php$php php$php-mysql php$php-curl php$php-json php$php-gd php$php-memcached php$php-intl php$php-sqlite3 php$php-gmp php$php-geoip php$php-mbstring php$php-xml php$php-zip -y
+	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
 		    apt install -y phpmyadmin
 		    rm -rf /usr/share/phpmyadmin/
@@ -244,7 +244,7 @@ function installMineWeb () {
 		    add-apt-repository -y ppa:ondrej/php
 	        apt update
 			#mem-cached et geoip à check
-	        apt install php$php libapache2-mod-php$php php$php-mysql php$php-curl php$php-json php$php-gd php$php-memcached php$php-intl php$php-sqlite3 php$php-gmp php$php-geoip php$php-mbstring php$php-xml php$php-zip -y
+	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
 		    apt install -y phpmyadmin
 			rm -rf /usr/share/phpmyadmin/
@@ -291,7 +291,7 @@ function installMineWeb () {
 		    add-apt-repository -y ppa:ondrej/php
 	        apt update
 			#mem-cached et geoip à check
-	        apt install php$php libapache2-mod-php$php php$php-mysql php$php-curl php$php-json php$php-gd php$php-memcached php$php-intl php$php-sqlite3 php$php-gmp php$php-geoip php$php-mbstring php$php-xml php$php-zip -y
+	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
 		    apt install -y phpmyadmin
 			rm -rf /usr/share/phpmyadmin/
