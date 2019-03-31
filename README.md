@@ -2,7 +2,7 @@
 [![Travis CI](https://travis-ci.com/fightmaxime/mineweb-install.svg?branch=master)](https://travis-ci.com/fightmaxime/mineweb-install)
 ## Usage
 ```sh
-wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/development/mineweb-install.sh
+wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/master/mineweb-install.sh
 chmod +x mineweb-install.sh
 ./mineweb-install.sh
 ```
