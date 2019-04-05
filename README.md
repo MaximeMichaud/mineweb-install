@@ -30,6 +30,8 @@ Le script supporte ces OS:
 * ~~phpMyAdmin à la dernière version~~
 * ~~Php 7.3, puisqu'il est supporté depuis~~ [#5](https://github.com/MineWeb/MineWebCMS/pull/5/),  [#100](https://github.com/MineWeb/MineWebCMS/pull/100/) ---> phpMyAdmin ne le supporte pas encore officiellement.
 * Possibilité de choisir nginx au lieu de apache2
+* Ajout d'un message comme quoi l'installation est terminé
+* Fonction pour mettre à jour phpMyAdmin & php (Si relancement du script)
 * Let's Encrypt
 * mysql_secure_installation (automatique)
 * Un peu de couleurs
