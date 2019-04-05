@@ -6,6 +6,8 @@ wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/master/minewe
 chmod +x mineweb-install.sh
 ./mineweb-install.sh
 ```
+[Indications concernant l'installation par 󠂪󠂪DarkScientist_](https://github.com/fightmaxime/mineweb-install/wiki/Tutoriel-par-%F3%A0%82%AA%F3%A0%82%AADarkScientist_)
+
 ## Compatibilité
 Veuillez considérer les dernières versions comme étant plus stable.
 
