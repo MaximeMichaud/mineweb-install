@@ -20,7 +20,6 @@ Le script supporte ces OS:
 | Ubuntu 16.04 | ✅  |
 | Ubuntu 18.04 | ✅  |
 | CentOS 7 | ❌  |
-| Fedora 28 | ❌  |
 ## Features
 * MySQL 5.7
 * PHP 5.6 à 7.3
