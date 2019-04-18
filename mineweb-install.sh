@@ -140,7 +140,7 @@ function installMineWeb () {
 		    apt update
 		    apt remove apt-listchanges -y 
 		    apt upgrade -y
-		    apt install -y ca-certificates apt-transport-https dirmngr zip unzip
+		    apt install -y ca-certificates apt-transport-https dirmngr zip unzip sudo
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
@@ -183,7 +183,7 @@ function installMineWeb () {
 		fi
 		if [[ "$VERSION_ID" = "9" ]]; then
 		    apt update
-		    apt -y install ca-certificates apt-transport-https dirmngr unzip
+		    apt -y install ca-certificates apt-transport-https dirmngr unzip sudo
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
