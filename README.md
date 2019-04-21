@@ -32,6 +32,8 @@ Le script supporte ces OS:
 * Ajout d'un message comme quoi l'installation est terminé
 * Fonction pour mettre à jour phpMyAdmin & php (Si relancement du script)
 * Let's Encrypt
+* Vérification une installation précédente a été tentée avec confirmation (Sans script)
+* Plus d'informations lors de l'installation (À la fin et pendant)
 * mysql_secure_installation (automatique)
 * Un peu de couleurs
 * ~~Supporté Debian 8, Ubuntu 16.04 & 18.04~~ (CentOS, seulement si demandé)
