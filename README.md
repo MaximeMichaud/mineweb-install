@@ -13,9 +13,11 @@ Veuillez considérer les dernières versions comme étant plus stable.
 
 Le script supporte ces OS:
 
+[Deian 8 à vérif depuis](https://twitter.com/digitalocean/status/1112442051491180547)
+
 |        |   |
 |--------|---|
-| Debian 8 | ✅  |
+| Debian 8 | ❔  |
 | Debian 9 | ✅ |
 | Ubuntu 16.04 | ✅  |
 | Ubuntu 18.04 | ✅  |
