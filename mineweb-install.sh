@@ -1,8 +1,17 @@
 #!/bin/bash
-
-# Installation automatique pour MineWeb
+#
+# [Installation automatique pour MineWeb]
 # https://github.com/fightmaxime/mineweb-install
-
+#################################################################################
+#Couleurs
+black=$(tput setaf 0); red=$(tput setaf 1); green=$(tput setaf 2); yellow=$(tput setaf 3);
+blue=$(tput setaf 4); magenta=$(tput setaf 5); cyan=$(tput setaf 6); white=$(tput setaf 7);
+on_red=$(tput setab 1); on_green=$(tput setab 2); on_yellow=$(tput setab 3); on_blue=$(tput setab 4);
+on_magenta=$(tput setab 5); on_cyan=$(tput setab 6); on_white=$(tput setab 7); bold=$(tput bold);
+dim=$(tput dim); underline=$(tput smul); reset_underline=$(tput rmul); standout=$(tput smso);
+reset_standout=$(tput rmso); normal=$(tput sgr0); alert=${white}${on_red}; title=${standout};
+sub_title=${bold}${yellow}; repo_title=${black}${on_green}; message_title=${white}${on_magenta}
+#################################################################################
 function isRoot () {
 	if [ "$EUID" -ne 0 ]; then
 		return 1
@@ -100,7 +109,7 @@ function installQuestions () {
 	esac
 	echo "Quelle version de MineWeb ?"
 	echo "   1) 1.7.0 (recommandé)"
-	echo "   2) Master (Dernière modifications possible)"
+	echo "   2) Développement (Dernière modifications possible)"
 	until [[ "$MINEWEB_VERSION" =~ ^[1-5]$ ]]; do
 		read -rp "Version [1-2]: " -e -i 1 MINEWEB_VERSION
 	done
@@ -111,9 +120,23 @@ function installQuestions () {
 			MOVEZIP="v1.7.0.zip"
 		;;
 		2)
-			UNZIP="master"
-			MOVE="MineWebCMS-master"
-			MOVEZIP="master.zip"
+			UNZIP="development"
+			MOVE="MineWebCMS-development"
+			MOVEZIP="development.zip"
+		;;
+	esac
+	echo "Souhaitez-vous supporter CloudFlare ?"
+	echo "Si vous refusez, il sera tout de même possible de le supporter en relaçant le script"
+	echo "Cela ne cause aucun souci d'accepter, même si vous n'utilisez pas CloudFlare dans l'immédiat."
+	echo "   1) Oui (recommandé)"
+	echo "   2) Non"
+	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
+		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
+	done
+	case $CLOUDFLARE_SUPPORT in
+		1)
+		;;
+		2)
 		;;
 	esac
 	echo "Nous sommes prêts à commencer l'installation."
@@ -313,7 +336,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
-		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
 		    unzip -q $UNZIP
@@ -377,6 +400,30 @@ function update () {
 		sleep 2
 		./mineweb-install.sh
 		exit
+}
+
+function updatephpMyAdmin () {
+	        rm -rf /usr/share/phpmyadmin/
+		    mkdir /usr/share/phpmyadmin/
+		    cd /usr/share/phpmyadmin/
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.8.5-all-languages.tar.gz
+		    mv phpMyAdmin-4.8.5-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages
+}
+
+function installcertbot () {
+#debian 9
+#à terminer
+	        apt-get install certbot python-certbot-apache -t stretch-backports
+}
+
+function installcloudflare () {
+	        apt-get install apache2-dev libtool git
+	        git clone https://github.com/cloudflare/mod_cloudflare.git && cd mod_cloudflare
+	        apxs -a -i -c mod_cloudflare.c
+	        apachectl restart; apache2ctl -M|grep cloudflare
 }
 
 # ...
