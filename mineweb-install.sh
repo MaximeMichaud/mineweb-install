@@ -160,7 +160,7 @@ function installMineWeb () {
 	
 	if [[ "$OS" =~ (debian|ubuntu) ]]; then
 		if [[ "$VERSION_ID" = "8" ]]; then
-		    apt update
+		    apt-get -o Acquire::Check-Valid-Until=false update
 		    apt remove apt-listchanges -y 
 		    apt upgrade -y
 		    apt install -y ca-certificates apt-transport-https dirmngr zip unzip sudo
@@ -168,13 +168,13 @@ function installMineWeb () {
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
-	        apt update
+	        apt-get -o Acquire::Check-Valid-Until=false update
 	        apt install mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 		    apt install -y apache2
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 	        echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/php.list
-	        apt update
+	        apt-get -o Acquire::Check-Valid-Until=false update
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
 		    apt install phpmyadmin -y
