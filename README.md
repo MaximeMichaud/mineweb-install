@@ -15,17 +15,20 @@ Le script supporte ces OS:
 
 [Deian 8 à vérif depuis](https://twitter.com/digitalocean/status/1112442051491180547)
 
+Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que vous faites. (Incompatibilité avec phpMyAdmin)
+
 |        |   |
 |--------|---|
 | Debian 8 | ❔  |
 | Debian 9 | ✅ |
+| Debian 10 | ❔ |
 | Ubuntu 16.04 | ✅  |
 | Ubuntu 18.04 | ✅  |
 | CentOS 7 | ❌  |
 ## Features
 * MySQL 5.7
 * PHP 5.6 à 7.3
-* phpMyAdmin 4.8.5
+* phpMyAdmin 4.9.0.1
 ## To-Do
 * ~~Choix de la version MineWeb & PHP~~
 * ~~phpMyAdmin à la dernière version~~

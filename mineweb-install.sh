@@ -24,7 +24,7 @@ function checkOS () {
 		source /etc/os-release
 
 		if [[ "$ID" == "debian" ]]; then
-			if [[ ! $VERSION_ID =~ (8|9) ]]; then
+			if [[ ! $VERSION_ID =~ (8|9|10) ]]; then
 				echo "⚠️ Votre version de Debian n'est pas supportée."
 				echo ""
 				echo "Si vous le souhaitez, vous pouvez tout de même continuer."
@@ -182,10 +182,10 @@ function installMineWeb () {
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
 		    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.8.5-all-languages.tar.gz
-		    mv phpMyAdmin-4.8.5-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -226,11 +226,56 @@ function installMineWeb () {
 		    rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
-		    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.8.5-all-languages.tar.gz
-		    mv phpMyAdmin-4.8.5-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
+		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
+	        fi
+		    a2enmod rewrite
+		    wget http://mineweb.maximemichaud.me/000-default.conf
+		    mv 000-default.conf /etc/apache2/sites-available/
+	        rm -rf 000-default.conf
+		    service apache2 restart
+		    apt install zip -y
+		    rm -rf /var/www/html/
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
+		    mv $MOVEZIP /var/www/
+		    cd /var/www/
+		    unzip -q $UNZIP
+		    rm -rf $UNZIP
+		    mv $MOVE /var/www/html
+            chmod -R 777 /var/www/html
+			if [[ "$VERSION_ID" = "9" ]]; then
+		    apt update
+		    apt -y install ca-certificates apt-transport-https dirmngr unzip sudo
+		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
+	        ls mysql-apt-config_0.8.8-1_all.deb
+	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
+	        apt install dirmngr -y
+	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
+	        apt update
+	        apt install mysql-server mysql-client -y
+	        systemctl enable mysql && systemctl start mysql
+		    apt install -y apache2
+		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
+	        echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
+	        apt update
+		    #mem-cached et geoip à check
+	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+		    service apache2 restart
+		    apt install -y phpmyadmin
+		    rm -rf /usr/share/phpmyadmin/
+		    mkdir /usr/share/phpmyadmin/
+		    cd /usr/share/phpmyadmin/
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -273,11 +318,11 @@ function installMineWeb () {
 			rm -rf /usr/share/phpmyadmin/
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
-			wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.tar.gz
-			tar xzf phpMyAdmin-4.8.5-all-languages.tar.gz
-			mv phpMyAdmin-4.8.5-all-languages/* /usr/share/phpmyadmin
-			rm /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages.tar.gz
-			rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages
+			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+			tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -320,11 +365,11 @@ function installMineWeb () {
 			rm -rf /usr/share/phpmyadmin/
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
-			wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.tar.gz
-			tar xzf phpMyAdmin-4.8.5-all-languages.tar.gz
-			mv phpMyAdmin-4.8.5-all-languages/* /usr/share/phpmyadmin
-			rm /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages.tar.gz
-			rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages
+			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+			tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -406,11 +451,11 @@ function updatephpMyAdmin () {
 	        rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
-		    wget https://files.phpmyadmin.net/phpMyAdmin/4.8.5/phpMyAdmin-4.8.5-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.8.5-all-languages.tar.gz
-		    mv phpMyAdmin-4.8.5-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.8.5-all-languages
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 }
 
 function installcertbot () {
