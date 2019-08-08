@@ -37,6 +37,7 @@ Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que
 * Ajout d'un message comme quoi l'installation est terminé
 * Fonction pour mettre à jour phpMyAdmin & php (Si relancement du script)
 * Let's Encrypt
+* Augmenter la limite d'upload de PHP pour phpMyAdmin
 * Vérification une installation précédente (Sans script) a été tentée avec confirmation
 * Plus d'informations lors de l'installation (À la fin et pendant)
 * mysql_secure_installation (automatique)
