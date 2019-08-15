@@ -21,7 +21,7 @@ Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que
 |--------|---|
 | Debian 8 | ❔  |
 | Debian 9 | ✅ |
-| Debian 10 | ❔ |
+| Debian 10 | ✅ |
 | Ubuntu 16.04 | ✅  |
 | Ubuntu 18.04 | ✅  |
 | CentOS 7 | ❌  |
