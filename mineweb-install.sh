@@ -273,8 +273,6 @@ function installMineWeb () {
 		    #mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
-		    apt install -y phpmyadmin
-		    rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
 		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
@@ -282,8 +280,10 @@ function installMineWeb () {
 		    mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
 		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
 		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
-		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
-		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
+			wget http://mineweb.maximemichaud.me/phpmyadmin.conf
+			mv phpmyadmin.conf /etc/apache2/sites-available/
+			a2ensite phpmyadmin
+			systemctl restart apache2
 	        fi
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
