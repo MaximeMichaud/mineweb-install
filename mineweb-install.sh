@@ -288,7 +288,6 @@ function installMineWeb () {
 			mv phpmyadmin.conf /etc/apache2/sites-available/
 			a2ensite phpmyadmin
 			systemctl restart apache2
-	        fi
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
