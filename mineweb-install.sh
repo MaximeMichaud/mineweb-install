@@ -202,6 +202,8 @@ function installMineWeb () {
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
+			mkdir /usr/share/phpmyadmin/tmp
+            chmod 777 /usr/share/phpmyadmin/tmp
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -247,6 +249,8 @@ function installMineWeb () {
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
+			mkdir /usr/share/phpmyadmin/tmp
+            chmod 777 /usr/share/phpmyadmin/tmp
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -290,6 +294,8 @@ function installMineWeb () {
 		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 			wget http://mineweb.maximemichaud.me/phpmyadmin.conf
 			mv phpmyadmin.conf /etc/apache2/sites-available/
+			mkdir /usr/share/phpmyadmin/tmp
+            chmod 777 /usr/share/phpmyadmin/tmp
 			a2ensite phpmyadmin
 			systemctl restart apache2
 		    a2enmod rewrite
@@ -339,6 +345,8 @@ function installMineWeb () {
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
+			mkdir /usr/share/phpmyadmin/tmp
+            chmod 777 /usr/share/phpmyadmin/tmp
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -386,6 +394,8 @@ function installMineWeb () {
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
+			mkdir /usr/share/phpmyadmin/tmp
+            chmod 777 /usr/share/phpmyadmin/tmp
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
