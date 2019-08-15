@@ -42,6 +42,8 @@ Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que
 * Plus d'informations lors de l'installation (À la fin et pendant)
 * mysql_secure_installation (automatique)
 * Un peu de couleurs
+* mysql-apt-config_0.8.13-1_all.deb
+* PHP 7.4
 * Création de la base de donnée automatique sur demande
 * Support de CloudFlare
 * Branch Dev ou Master (Confirmé, master porte les mêmes commits que la dernière release)
