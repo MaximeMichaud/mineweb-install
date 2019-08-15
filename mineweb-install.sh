@@ -167,7 +167,7 @@ function installMineWeb () {
 		    apt-get -o Acquire::Check-Valid-Until=false update
 		    apt remove apt-listchanges -y 
 		    apt upgrade -y
-		    apt install -y ca-certificates apt-transport-https dirmngr zip unzip sudo
+		    apt install -y ca-certificates apt-transport-https dirmngr zip unzip sudo lsb-release
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
@@ -211,7 +211,7 @@ function installMineWeb () {
 		fi
 		if [[ "$VERSION_ID" = "9" ]]; then
 		    apt update
-		    apt -y install ca-certificates apt-transport-https dirmngr unzip sudo
+		    apt -y install ca-certificates apt-transport-https dirmngr unzip sudo lsb-release
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
@@ -257,7 +257,7 @@ function installMineWeb () {
 		fi	
 		if [[ "$VERSION_ID" = "16.04" ]]; then
 			apt update
-			apt -y install ca-certificates apt-transport-https dirmngr software-properties-common
+			apt -y install ca-certificates apt-transport-https dirmngr software-properties-common lsb-release
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
@@ -304,7 +304,7 @@ function installMineWeb () {
 		fi
 		if [[ "$VERSION_ID" = "18.04" ]]; then
 			apt update
-			apt -y install ca-certificates apt-transport-https dirmngr software-properties-common
+			apt -y install ca-certificates apt-transport-https dirmngr software-properties-common lsb-release
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
