@@ -139,7 +139,7 @@ function installQuestions () {
 	done
 	case $CLOUDFLARE_SUPPORT in
 		1)
-		   sudo apt-get install apache2-dev libtool git
+		   sudo apt-get install apache2-dev libtool git -y
 		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
 		   apxs -a -i -c mod_cloudflare.
 		   apachectl restart; apache2ctl -M|grep cloudflare
