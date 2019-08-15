@@ -87,6 +87,7 @@ function installQuestions () {
 	echo "   3) PHP 7.1 "
 	echo "   4) PHP 7.2 (recommandé) "
 	echo "   5) PHP 7.3 (non recommandé puisque phpMyAdmin ne le supporte pas)"
+	echo "   6) PHP 7.4 (non recommandé du tout)"
 	until [[ "$PHP_VERSION" =~ ^[1-5]$ ]]; do
 		read -rp "Version [1-5]: " -e -i 4 PHP_VERSION
 	done
@@ -105,6 +106,9 @@ function installQuestions () {
 		;;
 		5)
 			PHP="7.3"
+		;;
+		6)
+			PHP="7.4"
 		;;
 	esac
 	echo "Quelle version de MineWeb ?"
