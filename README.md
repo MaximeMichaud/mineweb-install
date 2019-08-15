@@ -26,7 +26,7 @@ Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que
 | Ubuntu 18.04 | ✅  |
 | CentOS 7 | ❌  |
 ## Features
-* MySQL 5.7
+* MySQL 5.6 à 8.0
 * PHP 5.6 à 7.4
 * phpMyAdmin 4.9.0.1
 ## To-Do
