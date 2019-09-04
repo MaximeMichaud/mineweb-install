@@ -139,7 +139,7 @@ function installQuestions () {
 	done
 	case $CLOUDFLARE_SUPPORT in
 		1)
-		   sudo apt-get install apache2-dev libtool git -y
+		   apt-get install apache2-dev libtool git -y
 		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
 		   apxs -a -i -c mod_cloudflare.
 		   apachectl restart; apache2ctl -M|grep cloudflare
@@ -181,7 +181,7 @@ function installMineWeb () {
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt-get -o Acquire::Check-Valid-Until=false update
-	        apt install mysql-server mysql-client -y
+	        apt install --allow-unauthenticated mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 		    apt install -y apache2
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
