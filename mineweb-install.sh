@@ -500,13 +500,15 @@ function update () {
 
 function updatephpMyAdmin () {
 	                rm -rf /usr/share/phpmyadmin/
-			mkdir /usr/share/phpmyadmin/
-			cd /usr/share/phpmyadmin/
-			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
-		        rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+			        mkdir /usr/share/phpmyadmin/
+			        cd /usr/share/phpmyadmin/
+			        wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		            tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		            mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
+		            rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		            rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+					mkdir /usr/share/phpmyadmin/tmp
+                    chmod 777 /usr/share/phpmyadmin/tmp
 }
 
 function installcertbot () {
