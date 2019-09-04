@@ -44,6 +44,11 @@ Veuillez ne pas utiliser en dessous de php 7.1&7.3&7.4, à moins que vous sachie
 * Un peu de couleurs
 * ~~mysql-apt-config_0.8.13-1_all.deb~~
 * ~~PHP 7.4~~
+* Configuration MYSQL
+* Améliorer la configuration apache2 (check if apache2 installed first)
+* Augmenter max upload php,etc.
+* Update de sécurité automatique
+* Possibilité de upgrade de version PHP
 * Création de la base de donnée automatique sur demande
 * Support de CloudFlare
 * Branch Dev ou Master (Confirmé, master porte les mêmes commits que la dernière release)
