@@ -461,7 +461,7 @@ function manageMenu () {
 }
 
 function update () {
-	    wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/development/mineweb-install.sh -O mineweb-install.sh
+	    wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/master/mineweb-install.sh -O mineweb-install.sh
 		chmod +x mineweb-install.sh
 		echo ""
 		echo "Mise à jour effectuée."
