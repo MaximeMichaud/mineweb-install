@@ -230,6 +230,7 @@ function installMineWeb () {
 	        rm -rf 000-default.conf
 		    service apache2 restart
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -280,6 +281,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -329,6 +331,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -380,6 +383,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -431,6 +435,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
