@@ -466,7 +466,7 @@ function manageMenu () {
 	echo "Bienvenue dans l'installation automatique pour MineWeb !"
 	echo "https://github.com/fightmaxime/mineweb-install"
 	echo ""
-	echo "Il me semblerait que MineWeb soit déjà installé."
+	echo "Il semblerait que MineWeb soit déjà installé."
 	echo ""
 	echo "Qu'est-ce que tu veux faire?"
 	echo "   1) Relancer l'installation"
