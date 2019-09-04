@@ -147,6 +147,24 @@ function installQuestions () {
 		2)
 		;;
 	esac
+	echo "Souhaitez-vous améliorer la sécurité ?"
+	echo "Si vous refusez, ce sera à vous de vous en occuper"
+	echo "Cela n'influencera pas l'installation du CMS. "
+	echo "   1) Oui (recommandé)"
+	echo "   2) Non"
+	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
+		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
+	done
+	case $CLOUDFLARE_SUPPORT in
+		1)
+		   apt-get install apache2-dev libtool git -y
+		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
+		   apxs -a -i -c mod_cloudflare.
+		   apachectl restart; apache2ctl -M|grep cloudflare
+		;;
+		2)
+		;;
+	esac
 	echo "Nous sommes prêts à commencer l'installation."
 	APPROVE_INSTALL=${APPROVE_INSTALL:-n}
 	if [[ $APPROVE_INSTALL =~ n ]]; then
@@ -189,6 +207,8 @@ function installMineWeb () {
 		wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 	        apt-get -o Acquire::Check-Valid-Until=false update
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    apt install phpmyadmin -y
 		    rm -rf /usr/share/phpmyadmin/
@@ -237,6 +257,8 @@ function installMineWeb () {
 		    #mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    apt install -y phpmyadmin
 		    rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
@@ -284,6 +306,8 @@ function installMineWeb () {
 	        apt update
 		    #mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
@@ -332,6 +356,8 @@ function installMineWeb () {
 	        apt update
 			#mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    apt install -y phpmyadmin
 			rm -rf /usr/share/phpmyadmin/
@@ -381,6 +407,8 @@ function installMineWeb () {
 	        apt update
 			#mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    apt install -y phpmyadmin
 			rm -rf /usr/share/phpmyadmin/
