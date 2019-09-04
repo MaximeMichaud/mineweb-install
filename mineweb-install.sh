@@ -204,7 +204,7 @@ function installMineWeb () {
 		    apt install -y apache2
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 	        echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/php.list
-		wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+		    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 	        apt-get -o Acquire::Check-Valid-Until=false update
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
@@ -224,6 +224,8 @@ function installMineWeb () {
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -274,6 +276,8 @@ function installMineWeb () {
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -322,6 +326,8 @@ function installMineWeb () {
 			mv phpmyadmin.conf /etc/apache2/sites-available/
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 			a2ensite phpmyadmin
 			systemctl restart apache2
 		    a2enmod rewrite
@@ -367,15 +373,17 @@ function installMineWeb () {
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
 			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
-		        rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -419,15 +427,17 @@ function installMineWeb () {
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
 			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
-		        rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -514,6 +524,8 @@ function updatephpMyAdmin () {
 		            rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 					mkdir /usr/share/phpmyadmin/tmp
                     chmod 777 /usr/share/phpmyadmin/tmp
+					randomBlowfishSecret=`openssl rand -base64 32`;
+                    sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 }
 
 function installcertbot () {
