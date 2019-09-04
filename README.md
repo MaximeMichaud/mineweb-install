@@ -13,9 +13,9 @@ Veuillez considérer les dernières versions comme étant plus stable.
 
 Le script supporte ces OS:
 
-[Deian 8 à vérif depuis](https://twitter.com/digitalocean/status/1112442051491180547)
+~~[Deian 8 à vérif depuis](https://twitter.com/digitalocean/status/1112442051491180547)~~
 
-Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que vous faites. (Incompatibilité avec phpMyAdmin)
+Veuillez ne pas utiliser en dessous de php 7.1&7.3&7.4, à moins que vous sachiez ce que vous faites. (Incompatibilité avec phpMyAdmin)
 
 |        |   |
 |--------|---|
@@ -44,6 +44,11 @@ Veuillez ne pas utiliser en dessous de php 7.1, à moins que vous sachiez ce que
 * Un peu de couleurs
 * ~~mysql-apt-config_0.8.13-1_all.deb~~
 * ~~PHP 7.4~~
+* Configuration MYSQL
+* Améliorer la configuration apache2 (check if apache2 installed first)
+* Augmenter max upload php,etc.
+* Update de sécurité automatique
+* Possibilité de upgrade de version PHP
 * Création de la base de donnée automatique sur demande
 * Support de CloudFlare
 * Branch Dev ou Master (Confirmé, master porte les mêmes commits que la dernière release)

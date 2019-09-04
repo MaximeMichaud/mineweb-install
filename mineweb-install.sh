@@ -139,7 +139,25 @@ function installQuestions () {
 	done
 	case $CLOUDFLARE_SUPPORT in
 		1)
-		   sudo apt-get install apache2-dev libtool git -y
+		   apt-get install apache2-dev libtool git -y
+		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
+		   apxs -a -i -c mod_cloudflare.
+		   apachectl restart; apache2ctl -M|grep cloudflare
+		;;
+		2)
+		;;
+	esac
+	echo "Souhaitez-vous améliorer la sécurité ?"
+	echo "Si vous refusez, ce sera à vous de vous en occuper"
+	echo "Cela n'influencera pas l'installation du CMS. "
+	echo "   1) Oui (recommandé)"
+	echo "   2) Non"
+	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
+		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
+	done
+	case $CLOUDFLARE_SUPPORT in
+		1)
+		   apt-get install apache2-dev libtool git -y
 		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
 		   apxs -a -i -c mod_cloudflare.
 		   apachectl restart; apache2ctl -M|grep cloudflare
@@ -181,14 +199,16 @@ function installMineWeb () {
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt-get -o Acquire::Check-Valid-Until=false update
-	        apt install mysql-server mysql-client -y
+	        apt install --allow-unauthenticated mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 		    apt install -y apache2
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 	        echo "deb https://packages.sury.org/php/ jessie main" | tee /etc/apt/sources.list.d/php.list
-		wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+		    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 	        apt-get -o Acquire::Check-Valid-Until=false update
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    apt install phpmyadmin -y
 		    rm -rf /usr/share/phpmyadmin/
@@ -204,12 +224,15 @@ function installMineWeb () {
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
 	        rm -rf 000-default.conf
 		    service apache2 restart
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -237,6 +260,8 @@ function installMineWeb () {
 		    #mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
 		    service apache2 restart
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    apt install -y phpmyadmin
 		    rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
@@ -251,6 +276,8 @@ function installMineWeb () {
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -258,6 +285,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -284,6 +312,8 @@ function installMineWeb () {
 	        apt update
 		    #mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
@@ -296,6 +326,8 @@ function installMineWeb () {
 			mv phpmyadmin.conf /etc/apache2/sites-available/
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 			a2ensite phpmyadmin
 			systemctl restart apache2
 		    a2enmod rewrite
@@ -305,6 +337,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -332,21 +365,25 @@ function installMineWeb () {
 	        apt update
 			#mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    apt install -y phpmyadmin
 			rm -rf /usr/share/phpmyadmin/
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
 			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
-		        rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -354,6 +391,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
 		    mv $MOVEZIP /var/www/
@@ -381,21 +419,25 @@ function installMineWeb () {
 	        apt update
 			#mem-cached et geoip à check
 	        apt install php$PHP libapache2-mod-php$PHP php$PHP-mysql php$PHP-curl php$PHP-json php$PHP-gd php$PHP-memcached php$PHP-intl php$PHP-sqlite3 php$PHP-gmp php$PHP-geoip php$PHP-mbstring php$PHP-xml php$PHP-zip -y
+			sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 20M|' /etc/php/$PHP/apache2/php.ini
+            sed -i 's|post_max_size = 8M|post_max_size = 20M|' /etc/php/$PHP/apache2/php.ini
 		    service apache2 restart
 		    apt install -y phpmyadmin
 			rm -rf /usr/share/phpmyadmin/
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
 			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
-		        rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+		    tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
 			mkdir /usr/share/phpmyadmin/tmp
             chmod 777 /usr/share/phpmyadmin/tmp
+			randomBlowfishSecret=`openssl rand -base64 32`;
+            sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 		    a2enmod rewrite
 		    wget http://mineweb.maximemichaud.me/000-default.conf
 		    mv 000-default.conf /etc/apache2/sites-available/
@@ -403,6 +445,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    apt install zip -y
 		    rm -rf /var/www/html/
+			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
@@ -433,7 +476,7 @@ function manageMenu () {
 	echo "Bienvenue dans l'installation automatique pour MineWeb !"
 	echo "https://github.com/fightmaxime/mineweb-install"
 	echo ""
-	echo "Il me semblerait que MineWeb soit déjà installé."
+	echo "Il semblerait que MineWeb soit déjà installé."
 	echo ""
 	echo "Qu'est-ce que tu veux faire?"
 	echo "   1) Relancer l'installation"
@@ -461,7 +504,7 @@ function manageMenu () {
 }
 
 function update () {
-	    wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/development/mineweb-install.sh -O mineweb-install.sh
+	    wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/master/mineweb-install.sh -O mineweb-install.sh
 		chmod +x mineweb-install.sh
 		echo ""
 		echo "Mise à jour effectuée."
@@ -472,13 +515,17 @@ function update () {
 
 function updatephpMyAdmin () {
 	                rm -rf /usr/share/phpmyadmin/
-			mkdir /usr/share/phpmyadmin/
-			cd /usr/share/phpmyadmin/
-			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
-		        rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
-		        rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+			        mkdir /usr/share/phpmyadmin/
+			        cd /usr/share/phpmyadmin/
+			        wget https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		            tar xzf phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		            mv phpMyAdmin-4.9.0.1-all-languages/* /usr/share/phpmyadmin
+		            rm /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages.tar.gz
+		            rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.0.1-all-languages
+					mkdir /usr/share/phpmyadmin/tmp
+                    chmod 777 /usr/share/phpmyadmin/tmp
+					randomBlowfishSecret=`openssl rand -base64 32`;
+                    sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 }
 
 function installcertbot () {
