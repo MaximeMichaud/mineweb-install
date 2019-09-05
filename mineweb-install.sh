@@ -481,8 +481,9 @@ function manageMenu () {
 	echo "Qu'est-ce que tu veux faire?"
 	echo "   1) Relancer l'installation"
 	echo "   2) Mettre à jour phpMyAdmin"
-	echo "   3) Mettre à jour le script"
-	echo "   4) Quitter"
+	echo "   3) Ajouter un certificat (https)"
+	echo "   4) Mettre à jour le script"
+	echo "   5) Quitter"
 	until [[ "$MENU_OPTION" =~ ^[1-4]$ ]]; do
 		read -rp "Sélectionner une option [1-4]: " MENU_OPTION
 	done
@@ -495,9 +496,12 @@ function manageMenu () {
 			updatephpMyAdmin
 		;;
 		3)
-			update
+			install_letsencrypt
 		;;
 		4)
+			update
+		;;
+		5)
 			exit 0
 		;;
 	esac
@@ -528,10 +532,22 @@ function updatephpMyAdmin () {
                     sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php > config.inc.php
 }
 
-function installcertbot () {
-#debian 9
-#à terminer
-	        apt-get install certbot python-certbot-apache -t stretch-backports
+function install_letsencrypt () {
+            service apache2 stop
+            apt -y -qq install socat cron
+	        echo -ne "Veuillez entrer un mail pour le certificat: " ; read EMAIL
+		    echo -ne "Veuillez entrer le nom de domaine (monserveur.fr): " ; read DOMAIN
+			cd /root
+            mkdir -p /etc/apache2/ssl/{site,certs}
+            git clone https://github.com/Neilpang/acme.sh.git acme.sh-master
+            cd /root/acme.sh-master
+			./acme.sh --install --accountconf /etc/apache2/ssl/site/$DOMAIN.conf --accountkey /etc/apache2/ssl/site/$DOMAIN.key --accountemail "$EMAIL"
+            ./acme.sh --issue --standalone --keypath /etc/apache2/ssl/certs/$DOMAIN-ssl.key --fullchainpath /etc/apache2/ssl/certs/$DOMAIN-ssl.pem -d $DOMAIN
+            sed -i -e "s/SSLCertificateFile \/etc\/ssl\/certs\/ssl-cert-snakeoil.pem/SSLCertificateFile \/etc\/apache2\/ssl\/certs\/$DOMAIN-ssl.pem/g" /etc/apache2/sites-enabled/default-ssl.conf
+            sed -i -e "s/SSLCertificateKeyFile \/etc\/ssl\/private\/ssl-cert-snakeoil.key/SSLCertificateKeyFile \/etc\/apache2\/ssl\/certs\/$DOMAIN-ssl.key/g" /etc/apache2/sites-enabled/default-ssl.conf
+			line="30 2 * * 1 "~/acme.sh-master"/acme.sh --cron --home "~/acme.sh" > /dev/null"
+            (crontab -u root -l; echo "$line" ) | crontab -u root -
+            service apache2 restart
 }
 
 function installcloudflare () {
