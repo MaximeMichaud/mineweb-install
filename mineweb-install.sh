@@ -139,10 +139,12 @@ function installQuestions () {
 	done
 	case $CLOUDFLARE_SUPPORT in
 		1)
-		   apt-get install apache2-dev libtool git -y
-		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
-		   apxs -a -i -c mod_cloudflare.
-		   apachectl restart; apache2ctl -M|grep cloudflare
+		   apt update && cd /root/
+	       apt-get install libtool apache2-dev
+	       wget https://www.cloudflare.com/static/misc/mod_cloudflare/mod_cloudflare.c
+	       apxs -a -i -c mod_cloudflare.c
+	       apxs2 -a -i -c mod_cloudflare.c
+		   systemctl restart apache2
 		;;
 		2)
 		;;
@@ -552,10 +554,12 @@ function install_letsencrypt () {
 }
 
 function installcloudflare () {
-	        apt-get install apache2-dev libtool git
-	        git clone https://github.com/cloudflare/mod_cloudflare.git && cd mod_cloudflare
+            apt update && cd /root/
+	        apt-get install libtool apache2-dev
+	        wget https://www.cloudflare.com/static/misc/mod_cloudflare/mod_cloudflare.c
 	        apxs -a -i -c mod_cloudflare.c
-	        apachectl restart; apache2ctl -M|grep cloudflare
+	        apxs2 -a -i -c mod_cloudflare.c
+			systemctl restart apache2
 }
 
 # ...
