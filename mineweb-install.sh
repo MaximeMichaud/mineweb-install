@@ -88,8 +88,8 @@ function installQuestions () {
 	echo "   4) PHP 7.2 (recommandé) "
 	echo "   5) PHP 7.3 (non recommandé puisque phpMyAdmin ne le supporte pas)"
 	echo "   6) PHP 7.4 (non recommandé du tout)"
-	until [[ "$PHP_VERSION" =~ ^[1-5]$ ]]; do
-		read -rp "Version [1-5]: " -e -i 4 PHP_VERSION
+	until [[ "$PHP_VERSION" =~ ^[1-6]$ ]]; do
+		read -rp "Version [1-6]: " -e -i 4 PHP_VERSION
 	done
 	case $PHP_VERSION in
 		1)
