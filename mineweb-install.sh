@@ -494,6 +494,7 @@ function manageMenu () {
 		;;
 		2)
 			updatephpMyAdmin
+		;;
 		3)
 			install_letsencrypt
 		;;
