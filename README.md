@@ -35,9 +35,9 @@ Veuillez ne pas utiliser en dessous de php 7.1&7.3&7.4, à moins que vous sachie
 * ~~Php 7.3, puisqu'il est supporté depuis~~ [#5](https://github.com/MineWeb/MineWebCMS/pull/5/),  [#100](https://github.com/MineWeb/MineWebCMS/pull/100/) ---> phpMyAdmin ne le supporte pas encore officiellement.
 * Possibilité de choisir nginx au lieu de apache2
 * Ajout d'un message comme quoi l'installation est terminé
-* Fonction pour mettre à jour phpMyAdmin & php (Si relancement du script)
+* ~Fonction pour mettre à jour phpMyAdmin~ & php
 * Let's Encrypt
-* Augmenter la limite d'upload de PHP pour phpMyAdmin
+* ~Augmenter la limite d'upload de PHP pour phpMyAdmin~
 * Vérification une installation précédente (Sans script) a été tentée avec confirmation
 * Plus d'informations lors de l'installation (À la fin et pendant)
 * mysql_secure_installation (automatique)
@@ -46,11 +46,10 @@ Veuillez ne pas utiliser en dessous de php 7.1&7.3&7.4, à moins que vous sachie
 * ~~PHP 7.4~~
 * Configuration MYSQL
 * Améliorer la configuration apache2 (check if apache2 installed first)
-* Augmenter max upload php,etc.
 * Update de sécurité automatique
 * Possibilité de upgrade de version PHP
 * Création de la base de donnée automatique sur demande
-* Support de CloudFlare
+* ~Support de CloudFlare~
 * Branch Dev ou Master (Confirmé, master porte les mêmes commits que la dernière release)
 * Précisé s'ils veulent update le host au début
 * Configuration automatique de l'utilisateur et du CMS à partir du script
