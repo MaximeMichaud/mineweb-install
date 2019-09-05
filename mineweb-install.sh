@@ -254,7 +254,7 @@ function installMineWeb () {
 	        apt install dirmngr -y
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
-	        apt install mysql-server mysql-client -y
+	        apt install --allow-unauthenticated mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 		    apt install -y apache2
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
@@ -307,7 +307,7 @@ function installMineWeb () {
 	        apt install dirmngr -y
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
-	        apt install mysql-server mysql-client -y
+	        apt install --allow-unauthenticated mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 		    apt install -y apache2
 		    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
@@ -359,7 +359,7 @@ function installMineWeb () {
 	        apt install dirmngr -y
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
-	        apt install mysql-server mysql-client -y
+	        apt install --allow-unauthenticated mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 			add-apt-repository -y ppa:ondrej/apache2
 			apt update
@@ -413,7 +413,7 @@ function installMineWeb () {
 	        apt install dirmngr -y
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
-	        apt install mysql-server mysql-client -y
+	        apt install --allow-unauthenticated mysql-server mysql-client -y
 	        systemctl enable mysql && systemctl start mysql
 			add-apt-repository -y ppa:ondrej/apache2
 			apt update
