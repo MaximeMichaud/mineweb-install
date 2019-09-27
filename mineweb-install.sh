@@ -140,7 +140,7 @@ function installQuestions () {
 	case $CLOUDFLARE_SUPPORT in
 		1)
 		   apt update && cd /root/
-	       apt-get install libtool apache2-dev
+	       apt-get install libtool apache2-dev -y
 	       wget https://www.cloudflare.com/static/misc/mod_cloudflare/mod_cloudflare.c
 	       apxs -a -i -c mod_cloudflare.c
 	       apxs2 -a -i -c mod_cloudflare.c
