@@ -25,10 +25,10 @@ function checkOS () {
 
 		if [[ "$ID" == "debian" ]]; then
 			if [[ ! $VERSION_ID =~ (8|9|10) ]]; then
-				echo "Votre version de Debian n'est pas supportée."
+				echo "${alert}Votre version de Debian n'est pas supportée.${normal}"
 				echo ""
-				echo "Si vous le souhaitez, vous pouvez tout de même continuer."
-				echo "Gardez à l'esprit que ce n'est supportée !"
+				echo "${red}Si vous le souhaitez, vous pouvez tout de même continuer."
+				echo "Gardez à l'esprit que ce n'est supportée !${normal}"
 				echo ""
 				until [[ $CONTINUE =~ (y|n) ]]; do
 					read -rp "Continuer? [y/n]: " -e CONTINUE
@@ -40,10 +40,10 @@ function checkOS () {
 		elif [[ "$ID" == "ubuntu" ]];then
 			OS="ubuntu"
 			if [[ ! $VERSION_ID =~ (16.04|18.04) ]]; then
-				echo "Votre version de Ubuntu n'est pas supportée."
+				echo "${alert}Votre version de Ubuntu n'est pas supportée.${normal}"
 				echo ""
-				echo "Si vous le souhaitez, vous pouvez tout de même continuer."
-				echo "Gardez à l'esprit que ce n'est supportée !"
+				echo "${red}Si vous le souhaitez, vous pouvez tout de même continuer."
+				echo "Gardez à l'esprit que ce n'est supportée !${normal}"
 				echo ""
 				until [[ $CONTINUE =~ (y|n) ]]; do
 					read -rp "Continuer? [y/n]: " -e CONTINUE
@@ -57,8 +57,8 @@ function checkOS () {
 		OS=fedora
 	elif [[ -e /etc/centos-release ]]; then
 		if ! grep -qs "^CentOS Linux release 7" /etc/centos-release; then
-			echo "Votre version de CentOS n'est pas supportée."
-			echo "Gardez à l'esprit que ce n'est supportée !"
+			echo "${alert}Votre version de CentOS n'est pas supportée.${normal}"
+			echo "${red}Gardez à l'esprit que ce n'est supportée !${normal}"
 			echo ""
 			unset CONTINUE
 			until [[ $CONTINUE =~ (y|n) ]]; do
@@ -69,25 +69,26 @@ function checkOS () {
 			fi
 		fi
 	else
-		echo "On dirait que vous n'exécutez pas ce script d'installation automatique sur une distribution Debian, Ubuntu, Fedora ou CentOS"
+		echo "${alert}On dirait que vous n'exécutez pas ce script d'installation automatique sur une distribution Debian, Ubuntu, Fedora ou CentOS ${normal}"
 		exit 1
 	fi
 }
 
 function installQuestions () {
-	echo "Bienvenue dans l'installation automatique pour MineWeb !"
+	echo "${cyan}Bienvenue dans l'installation automatique pour MineWeb !"
 	echo "https://github.com/MaximeMichaud/mineweb-install"
 	echo ""
 	echo "Je dois vous poser quelques questions avant de commencer la configuration."
 	echo "Vous pouvez laisser les options par défaut et appuyer simplement sur Entrée si cela vous convient."
 	echo ""
 	echo "Quelle version de PHP ?"
-	echo "   1) PHP 5.6 "
+	echo "${red}Rouge = Fin de vie ${yellow}Jaune = Sécurité uniquement ${green}Vert = Support & Sécurité"
+	echo "${red}   1) PHP 5.6 "
 	echo "   2) PHP 7.0 "
-	echo "   3) PHP 7.1 "
-	echo "   4) PHP 7.2 "
+	echo "${yellow}   3) PHP 7.1 "
+	echo "${green}   4) PHP 7.2 "
 	echo "   5) PHP 7.3 (recommandé) "
-	echo "   6) PHP 7.4 (non supporté par phpMyAdmin & MineWeb)"
+	echo "   6) PHP 7.4 (${alert}non supporté officiellement par phpMyAdmin & MineWeb)${normal}${cyan}"
 	until [[ "$PHP_VERSION" =~ ^[1-6]$ ]]; do
 		read -rp "Version [1-6]: " -e -i 5 PHP_VERSION
 	done
@@ -562,7 +563,7 @@ function installcloudflare () {
 			systemctl restart apache2
 }
 
-# ...
+# STRUCTURE
 initialCheck
 
 # Vérifier si MineWeb est déjà installé
