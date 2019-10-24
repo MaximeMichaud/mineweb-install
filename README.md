@@ -13,10 +13,6 @@ Veuillez considérer les dernières versions comme étant plus stable.
 
 Le script supporte ces OS:
 
-~~[Deian 8 à vérif depuis](https://twitter.com/digitalocean/status/1112442051491180547)~~
-
-Veuillez ne pas utiliser en dessous de php 7.1&7.3&7.4, à moins que vous sachiez ce que vous faites. (Incompatibilité avec phpMyAdmin)
-
 |        |   |
 |--------|---|
 | Debian 8 | ❌  |
