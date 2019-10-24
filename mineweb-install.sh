@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # [Installation automatique pour MineWeb]
-# https://github.com/fightmaxime/mineweb-install
+# https://github.com/MaximeMichaud/mineweb-install
 #################################################################################
 #Couleurs
 black=$(tput setaf 0); red=$(tput setaf 1); green=$(tput setaf 2); yellow=$(tput setaf 3);
@@ -76,7 +76,7 @@ function checkOS () {
 
 function installQuestions () {
 	echo "Bienvenue dans l'installation automatique pour MineWeb !"
-	echo "https://github.com/fightmaxime/mineweb-install"
+	echo "https://github.com/MaximeMichaud/mineweb-install"
 	echo ""
 	echo "Je dois vous poser quelques questions avant de commencer la configuration."
 	echo "Vous pouvez laisser les options par défaut et appuyer simplement sur Entrée si cela vous convient."
@@ -477,7 +477,7 @@ function initialCheck () {
 function manageMenu () {
 	clear
 	echo "Bienvenue dans l'installation automatique pour MineWeb !"
-	echo "https://github.com/fightmaxime/mineweb-install"
+	echo "https://github.com/MaximeMichaud/mineweb-install"
 	echo ""
 	echo "Il semblerait que MineWeb soit déjà installé."
 	echo ""
@@ -511,7 +511,7 @@ function manageMenu () {
 }
 
 function update () {
-	    wget https://raw.githubusercontent.com/fightmaxime/mineweb-install/master/mineweb-install.sh -O mineweb-install.sh
+	    wget https://raw.githubusercontent.com/MaximeMichaud/mineweb-install/master/mineweb-install.sh -O mineweb-install.sh
 		chmod +x mineweb-install.sh
 		echo ""
 		echo "Mise à jour effectuée."
