@@ -130,45 +130,44 @@ function installQuestions () {
 			MOVEZIP="development.zip"
 		;;
 	esac
-	echo "Souhaitez-vous supporter CloudFlare ?"
-	echo "Si vous refusez, il sera tout de même possible de le supporter en relaçant le script"
-	echo "Cela ne cause aucun souci d'accepter, même si vous n'utilisez pas CloudFlare dans l'immédiat."
-	echo "   1) Oui (recommandé)"
-	echo "   2) Non"
-	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
-		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
-	done
-	case $CLOUDFLARE_SUPPORT in
-		1)
-		   apt update && cd /root/
-	       apt-get install libtool apache2-dev -y
-	       wget https://www.cloudflare.com/static/misc/mod_cloudflare/mod_cloudflare.c
-	       apxs -a -i -c mod_cloudflare.c
-	       apxs2 -a -i -c mod_cloudflare.c
-		   systemctl restart apache2
-		;;
-		2)
-		;;
-	esac
-	echo "Souhaitez-vous améliorer la sécurité ?"
-	echo "Si vous refusez, ce sera à vous de vous en occuper"
-	echo "Cela n'influencera pas l'installation du CMS. "
-	echo "   1) Oui (recommandé)"
-	echo "   2) Non"
-	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
-		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
-	done
-	case $CLOUDFLARE_SUPPORT in
-		1) #À REFAIRE
-		   apt update
-		   apt install apache2-dev apache2 libtool git -y
-		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
-		   apxs -a -i -c mod_cloudflare.
-		   apachectl restart; apache2ctl -M|grep cloudflare
-		;;
-		2)
-		;;
-	esac
+#	echo "Souhaitez-vous supporter CloudFlare ?"
+#	echo "Si vous refusez, il sera tout de même possible de le supporter en relaçant le script"
+#	echo "Cela ne cause aucun souci d'accepter, même si vous n'utilisez pas CloudFlare dans l'immédiat."
+#	echo "   1) Oui (recommandé)"
+#	echo "   2) Non"
+#	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
+#		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
+#	done
+#	case $CLOUDFLARE_SUPPORT in
+#		1)
+#		   apt update && cd /root/
+#	       apt-get install libtool apache2-dev -y
+#	       wget https://www.cloudflare.com/static/misc/mod_cloudflare/mod_cloudflare.c
+#	       apxs -a -i -c mod_cloudflare.c
+#	       apxs2 -a -i -c mod_cloudflare.c
+#		   systemctl restart apache2
+#		;;
+#		2)
+#		;;
+#	esac
+#	echo "Souhaitez-vous améliorer la sécurité ?"
+#	echo "Si vous refusez, ce sera à vous de vous en occuper"
+#	echo "Cela n'influencera pas l'installation du CMS. "
+#	echo "   1) Oui (recommandé)"
+#	echo "   2) Non"
+#	until [[ "$CLOUDFLARE_SUPPORT" =~ ^[1-2]$ ]]; do
+#		read -rp "Version [1-2]: " -e -i 1 CLOUDFLARE_SUPPORT
+#	done
+#	case $CLOUDFLARE_SUPPORT in
+#		1) #À REFAIRE
+#		   apt update
+#		   apt install apache2-dev apache2 libtool git -y
+#		   git clone https://github.com/cloudflare/mod_cloudflare.git; cd mod_cloudflare
+#		   apxs -a -i -c mod_cloudflare.
+#		   apachectl restart; apache2ctl -M|grep cloudflare
+#		;;
+#		2)
+#		;;
 	echo "Nous sommes prêts à commencer l'installation."
 	APPROVE_INSTALL=${APPROVE_INSTALL:-n}
 	if [[ $APPROVE_INSTALL =~ n ]]; then
