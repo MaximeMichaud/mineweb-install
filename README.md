@@ -19,7 +19,7 @@ Veuillez ne pas utiliser en dessous de php 7.1&7.3&7.4, à moins que vous sachie
 
 |        |   |
 |--------|---|
-| Debian 8 | ❔  |
+| Debian 8 | ❌  |
 | Debian 9 | ✅ |
 | Debian 10 | ✅ |
 | Ubuntu 16.04 | ✅  |
