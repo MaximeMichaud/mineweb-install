@@ -112,10 +112,10 @@ function installQuestions () {
 		;;
 	esac
 	echo "Quelle version de MineWeb ?"
-	echo "   1) 1.7.0 (recommandé)"
-	echo "   2) Développement (Dernière modifications possible)"
+	echo "   1) Master (1.7.0)"
+	echo "   2) Développement (Dernière version possible, recommandé)"
 	until [[ "$MINEWEB_VERSION" =~ ^[1-5]$ ]]; do
-		read -rp "Version [1-2]: " -e -i 1 MINEWEB_VERSION
+		read -rp "Version [1-2]: " -e -i 2 MINEWEB_VERSION
 	done
 	case $MINEWEB_VERSION in
 		1)
