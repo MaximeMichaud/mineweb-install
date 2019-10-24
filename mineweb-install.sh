@@ -82,14 +82,14 @@ function installQuestions () {
 	echo "Vous pouvez laisser les options par défaut et appuyer simplement sur Entrée si cela vous convient."
 	echo ""
 	echo "Quelle version de PHP ?"
-	echo "   1) PHP 5.6 (non recommandé)"
+	echo "   1) PHP 5.6 "
 	echo "   2) PHP 7.0 "
 	echo "   3) PHP 7.1 "
-	echo "   4) PHP 7.2 (recommandé) "
-	echo "   5) PHP 7.3 (non recommandé puisque phpMyAdmin ne le supporte pas)"
-	echo "   6) PHP 7.4 (non recommandé du tout)"
+	echo "   4) PHP 7.2 "
+	echo "   5) PHP 7.3 (recommandé) "
+	echo "   6) PHP 7.4 (non supporté par phpMyAdmin & MineWeb)"
 	until [[ "$PHP_VERSION" =~ ^[1-6]$ ]]; do
-		read -rp "Version [1-6]: " -e -i 4 PHP_VERSION
+		read -rp "Version [1-6]: " -e -i 5 PHP_VERSION
 	done
 	case $PHP_VERSION in
 		1)
