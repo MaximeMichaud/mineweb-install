@@ -25,7 +25,7 @@ function checkOS () {
 
 		if [[ "$ID" == "debian" ]]; then
 			if [[ ! $VERSION_ID =~ (8|9|10) ]]; then
-				echo "⚠️ Votre version de Debian n'est pas supportée."
+				echo "Votre version de Debian n'est pas supportée."
 				echo ""
 				echo "Si vous le souhaitez, vous pouvez tout de même continuer."
 				echo "Gardez à l'esprit que ce n'est supportée !"
@@ -40,7 +40,7 @@ function checkOS () {
 		elif [[ "$ID" == "ubuntu" ]];then
 			OS="ubuntu"
 			if [[ ! $VERSION_ID =~ (16.04|18.04) ]]; then
-				echo "⚠️ Votre version de Ubuntu n'est pas supportée."
+				echo "Votre version de Ubuntu n'est pas supportée."
 				echo ""
 				echo "Si vous le souhaitez, vous pouvez tout de même continuer."
 				echo "Gardez à l'esprit que ce n'est supportée !"
@@ -57,7 +57,7 @@ function checkOS () {
 		OS=fedora
 	elif [[ -e /etc/centos-release ]]; then
 		if ! grep -qs "^CentOS Linux release 7" /etc/centos-release; then
-			echo "⚠️ Votre version de CentOS n'est pas supportée."
+			echo "Votre version de CentOS n'est pas supportée."
 			echo "Gardez à l'esprit que ce n'est supportée !"
 			echo ""
 			unset CONTINUE
