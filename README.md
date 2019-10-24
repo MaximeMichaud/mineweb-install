@@ -24,7 +24,7 @@ Le script supporte ces OS:
 ## Features
 * MySQL 5.6 à 8.0 (ne pas prendre le SHA de 8.0)
 * PHP 5.6 à 7.4
-* phpMyAdmin 4.9.0.1
+* phpMyAdmin 4.9.1
 ## To-Do
 * ~~Choix de la version MineWeb & PHP~~
 * ~~phpMyAdmin à la dernière version~~
