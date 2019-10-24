@@ -88,7 +88,7 @@ function installQuestions () {
 	echo "${yellow}   3) PHP 7.1 "
 	echo "${green}   4) PHP 7.2 "
 	echo "   5) PHP 7.3 (recommandé) "
-	echo "   6) PHP 7.4 (${alert}non supporté officiellement par phpMyAdmin & MineWeb)${normal}${cyan}"
+	echo "   6) PHP 7.4 (${red}non supporté officiellement par phpMyAdmin & MineWeb)${normal}${cyan}"
 	until [[ "$PHP_VERSION" =~ ^[1-6]$ ]]; do
 		read -rp "Version [1-6]: " -e -i 5 PHP_VERSION
 	done
@@ -114,7 +114,7 @@ function installQuestions () {
 	esac
 	echo "Quelle version de MineWeb ?"
 	echo "   1) Master (1.7.0)"
-	echo "   2) Développement (Dernière version possible, recommandé)"
+	echo "   2) Développement (Dernière modifications possible, recommandé)"
 	until [[ "$MINEWEB_VERSION" =~ ^[1-5]$ ]]; do
 		read -rp "Version [1-2]: " -e -i 2 MINEWEB_VERSION
 	done
