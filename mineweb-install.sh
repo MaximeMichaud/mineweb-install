@@ -236,7 +236,7 @@ function installMineWeb () {
 		    rm -rf /var/www/html/
 			cd /var/wwww
 		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
-		    wget https://github.com/MineWeb/MineWebCMS/archive/master.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
 		    unzip -q $UNZIP
