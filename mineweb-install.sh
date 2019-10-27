@@ -197,9 +197,8 @@ function installMineWeb () {
 		    apt remove apt-listchanges -y 
 		    apt upgrade -y
 		    apt install -y ca-certificates apt-transport-https dirmngr zip unzip sudo lsb-release
-		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
-	        ls mysql-apt-config_0.8.8-1_all.deb
-	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
+		    echo "deb https://repo.mysql.com/apt/debian/ jessie mysql-8.0" | sudo tee /etc/apt/sources.list.d/mysql.list
+			echo "deb-src https://repo.mysql.com/apt/debian/ jessie mysql-8.0" | sudo tee /etc/apt/sources.list.d/mysql.list
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt-get -o Acquire::Check-Valid-Until=false update
 	        apt install --allow-unauthenticated mysql-server mysql-client -y
@@ -248,10 +247,8 @@ function installMineWeb () {
 		if [[ "$VERSION_ID" = "9" ]]; then
 		    apt update
 		    apt -y install ca-certificates apt-transport-https dirmngr unzip sudo lsb-release
-		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
-	        ls mysql-apt-config_0.8.8-1_all.deb
-	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
-	        apt install dirmngr -y
+			echo "deb https://repo.mysql.com/apt/debian/ stretch mysql-8.0" | sudo tee /etc/apt/sources.list.d/mysql.list
+			echo "deb-src https://repo.mysql.com/apt/debian/ stretch mysql-8.0" | sudo tee /etc/apt/sources.list.d/mysql.list
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
 	        apt install --allow-unauthenticated mysql-server mysql-client -y
@@ -301,10 +298,8 @@ function installMineWeb () {
 		if [[ "$VERSION_ID" = "10" ]]; then
 		    apt update
 		    apt -y install ca-certificates apt-transport-https dirmngr unzip sudo lsb-release
-		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
-	        ls mysql-apt-config_0.8.13-1_all.deb
-	        dpkg -i mysql-apt-config_0.8.13-1_all.deb
-	        apt install dirmngr -y
+		    echo "deb https://repo.mysql.com/apt/debian/ buster mysql-8.0" | sudo tee /etc/apt/sources.list.d/mysql.list
+			echo "deb-src https://repo.mysql.com/apt/debian/ buster mysql-8.0" | sudo tee /etc/apt/sources.list.d/mysql.list
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
 	        apt install --allow-unauthenticated mysql-server mysql-client -y
@@ -356,7 +351,6 @@ function installMineWeb () {
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.8-1_all.deb
 	        ls mysql-apt-config_0.8.8-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.8-1_all.deb
-	        apt install dirmngr -y
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
 	        apt install --allow-unauthenticated mysql-server mysql-client -y
@@ -410,7 +404,6 @@ function installMineWeb () {
 		    wget https://dev.mysql.com/get/mysql-apt-config_0.8.13-1_all.deb
 	        ls mysql-apt-config_0.8.13-1_all.deb
 	        dpkg -i mysql-apt-config_0.8.13-1_all.deb
-	        apt install dirmngr -y
 	        apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
 	        apt update
 	        apt install --allow-unauthenticated mysql-server mysql-client -y
