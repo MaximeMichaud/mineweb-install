@@ -22,7 +22,7 @@ Le script supporte ces OS:
 | Ubuntu 18.04 | ✅  |
 | CentOS 7 | ❌  |
 ## Features
-* MySQL 5.6 à 8.0 (ne pas prendre le SHA de 8.0)
+* MySQL 5.6 à 8.0 (**ne pas prendre le SHA de _8.0_**)
 * PHP 5.6 à 7.4
 * phpMyAdmin 4.9.1
 ## To-Do
