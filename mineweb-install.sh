@@ -81,6 +81,7 @@ function installQuestions () {
 	echo "Je dois vous poser quelques questions avant de commencer la configuration."
 	echo "Vous pouvez laisser les options par défaut et appuyer simplement sur Entrée si cela vous convient."
 	echo ""
+	echo "${alert}Veuillez sélectionner pour MYSQL : Use Legacy Authentication Method"
 	echo "Quelle version de PHP ?"
 	echo "${red}Rouge = Fin de vie ${yellow}Jaune = Sécurité uniquement ${green}Vert = Support & Sécurité"
 	echo "${red}   1) PHP 5.6 "
@@ -113,16 +114,16 @@ function installQuestions () {
 		;;
 	esac
 	echo "Quelle version de MineWeb ?"
-	echo "   1) Master (1.7.0)"
+	echo "   1) Master (1.8.0)"
 	echo "   2) Développement (Dernière modifications possible, recommandé)"
 	until [[ "$MINEWEB_VERSION" =~ ^[1-5]$ ]]; do
-		read -rp "Version [1-2]: " -e -i 2 MINEWEB_VERSION
+		read -rp "Version [1-2]: " -e -i 1 MINEWEB_VERSION
 	done
 	case $MINEWEB_VERSION in
 		1)
-			UNZIP="v1.7.0.zip"
-			MOVE="MineWebCMS-1.7.0"
-			MOVEZIP="v1.7.0.zip"
+			UNZIP="v1.8.0.zip"
+			MOVE="MineWebCMS-1.8.0"
+			MOVEZIP="v1.8.0.zip"
 		;;
 		2)
 			UNZIP="development"
@@ -235,7 +236,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -243,6 +244,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
+			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
 		fi
 		if [[ "$VERSION_ID" = "9" ]]; then
 		    apt update
@@ -286,7 +288,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -294,6 +296,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
+			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
 	    fi
 		if [[ "$VERSION_ID" = "10" ]]; then
 		    apt update
@@ -336,7 +339,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -344,6 +347,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
+			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
 		fi	
 		if [[ "$VERSION_ID" = "16.04" ]]; then
 			apt update
@@ -389,7 +393,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -397,6 +401,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
+			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
 		fi
 		if [[ "$VERSION_ID" = "18.04" ]]; then
 			apt update
@@ -442,7 +447,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.7.0.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.0.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -450,6 +455,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
+			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
 		fi
 	elif [[ "$OS" = 'centos' ]]; then
 		yum install -y epel-release
