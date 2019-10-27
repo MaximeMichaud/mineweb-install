@@ -244,7 +244,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
-			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
+			echo "${red}Veuillez supprimer /config/secure.txt après l'installation de votre base de données.${normal}"
 		fi
 		if [[ "$VERSION_ID" = "9" ]]; then
 		    apt update
@@ -296,7 +296,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
-			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
+			echo "${red}Veuillez supprimer /config/secure.txt après l'installation de votre base de données.${normal}"
 	    fi
 		if [[ "$VERSION_ID" = "10" ]]; then
 		    apt update
@@ -347,7 +347,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
-			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
+			echo "${red}Veuillez supprimer /config/secure.txt après l'installation de votre base de données.${normal}"
 		fi	
 		if [[ "$VERSION_ID" = "16.04" ]]; then
 			apt update
@@ -401,7 +401,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
-			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
+			echo "${red}Veuillez supprimer /config/secure.txt après l'installation de votre base de données.${normal}"
 		fi
 		if [[ "$VERSION_ID" = "18.04" ]]; then
 			apt update
@@ -455,7 +455,7 @@ function installMineWeb () {
 		    rm -rf $UNZIP
 		    mv $MOVE /var/www/html
             chmod -R 777 /var/www/html
-			echo "${red}Rouge = Veuillez supprimer /config/secure.txt après l'installation de votre base de données."
+			echo "${red}Veuillez supprimer /config/secure.txt après l'installation de votre base de données.${normal}"
 		fi
 	elif [[ "$OS" = 'centos' ]]; then
 		yum install -y epel-release
