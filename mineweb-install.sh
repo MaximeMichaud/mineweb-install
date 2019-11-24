@@ -217,11 +217,11 @@ function installMineWeb () {
 		    rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
-		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.9.1-all-languages.tar.gz
-		    mv phpMyAdmin-4.9.1-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.2-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.2-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -268,11 +268,11 @@ function installMineWeb () {
 		    rm -rf /usr/share/phpmyadmin/
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
-		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.9.1-all-languages.tar.gz
-		    mv phpMyAdmin-4.9.1-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.2-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.2-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -318,11 +318,11 @@ function installMineWeb () {
 		    service apache2 restart
 		    mkdir /usr/share/phpmyadmin/
 		    cd /usr/share/phpmyadmin/
-		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.9.1-all-languages.tar.gz
-		    mv phpMyAdmin-4.9.1-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages
+		    wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.2-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.2-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages
 			wget http://mineweb.maximemichaud.me/phpmyadmin.conf
 			mv phpmyadmin.conf /etc/apache2/sites-available/
 			mkdir /usr/share/phpmyadmin/tmp
@@ -373,11 +373,11 @@ function installMineWeb () {
 			rm -rf /usr/share/phpmyadmin/
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
-			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.9.1-all-languages.tar.gz
-		    mv phpMyAdmin-4.9.1-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages
+			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.2-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.2-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -427,11 +427,11 @@ function installMineWeb () {
 			rm -rf /usr/share/phpmyadmin/
 			mkdir /usr/share/phpmyadmin/
 			cd /usr/share/phpmyadmin/
-			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    tar xzf phpMyAdmin-4.9.1-all-languages.tar.gz
-		    mv phpMyAdmin-4.9.1-all-languages/* /usr/share/phpmyadmin
-		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages.tar.gz
-		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages
+			wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    tar xzf phpMyAdmin-4.9.2-all-languages.tar.gz
+		    mv phpMyAdmin-4.9.2-all-languages/* /usr/share/phpmyadmin
+		    rm /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages.tar.gz
+		    rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages
 		    if ! grep -q "Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf; then
 		    echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 	        fi
@@ -523,11 +523,11 @@ function updatephpMyAdmin () {
 	                rm -rf /usr/share/phpmyadmin/
 			        mkdir /usr/share/phpmyadmin/
 			        cd /usr/share/phpmyadmin/
-			        wget https://files.phpmyadmin.net/phpMyAdmin/4.9.1/phpMyAdmin-4.9.1-all-languages.tar.gz
-		            tar xzf phpMyAdmin-4.9.1-all-languages.tar.gz
-		            mv phpMyAdmin-4.9.1-all-languages/* /usr/share/phpmyadmin
-		            rm /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages.tar.gz
-		            rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.1-all-languages
+			        wget https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.gz
+		            tar xzf phpMyAdmin-4.9.2-all-languages.tar.gz
+		            mv phpMyAdmin-4.9.2-all-languages/* /usr/share/phpmyadmin
+		            rm /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages.tar.gz
+		            rm -rf /usr/share/phpmyadmin/phpMyAdmin-4.9.2-all-languages
 					mkdir /usr/share/phpmyadmin/tmp
                     chmod 777 /usr/share/phpmyadmin/tmp
 					randomBlowfishSecret=`openssl rand -base64 32`;
