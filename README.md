@@ -26,9 +26,6 @@ Le script supporte ces OS:
 * PHP 5.6 à 7.4
 * phpMyAdmin 4.9.2
 ## To-Do
-* ~~Choix de la version MineWeb & PHP~~
-* ~~phpMyAdmin à la dernière version~~
-* ~~Php 7.3, puisqu'il est supporté depuis~~ [#5](https://github.com/MineWeb/MineWebCMS/pull/5/),  [#100](https://github.com/MineWeb/MineWebCMS/pull/100/) ---> phpMyAdmin ne le supporte pas encore officiellement.
 * Possibilité de choisir nginx au lieu de apache2
 * Ajout d'un message comme quoi l'installation est terminé
 * ~Fonction pour mettre à jour phpMyAdmin~ & php
