@@ -117,7 +117,7 @@ function installQuestions () {
 	echo "   1) Master (1.8.3)"
 	echo "   2) Développement (Dernière modifications possible, recommandé)"
 	until [[ "$MINEWEB_VERSION" =~ ^[1-5]$ ]]; do
-		read -rp "Version [1-2]: " -e -i 1 MINEWEB_VERSION
+		read -rp "Version [1-2]: " -e -i 2 MINEWEB_VERSION
 	done
 	case $MINEWEB_VERSION in
 		1)
