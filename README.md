@@ -24,7 +24,7 @@ Le script supporte ces OS:
 ## Features
 * MySQL 5.6 à 8.0 (**ne pas prendre le SHA de _8.0_**)
 * PHP 5.6 à 7.4
-* phpMyAdmin 4.9.1
+* phpMyAdmin 4.9.2
 ## To-Do
 * ~~Choix de la version MineWeb & PHP~~
 * ~~phpMyAdmin à la dernière version~~
@@ -33,13 +33,9 @@ Le script supporte ces OS:
 * Ajout d'un message comme quoi l'installation est terminé
 * ~Fonction pour mettre à jour phpMyAdmin~ & php
 * Let's Encrypt
-* ~Augmenter la limite d'upload de PHP pour phpMyAdmin~
 * Vérification une installation précédente (Sans script) a été tentée avec confirmation
 * Plus d'informations lors de l'installation (À la fin et pendant)
 * mysql_secure_installation (automatique)
-* Un peu de couleurs
-* ~~mysql-apt-config_0.8.13-1_all.deb~~
-* ~~PHP 7.4~~
 * Configuration MYSQL
 * Améliorer la configuration apache2 (check if apache2 installed first)
 * Update de sécurité automatique
