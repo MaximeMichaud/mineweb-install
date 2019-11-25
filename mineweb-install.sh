@@ -114,16 +114,16 @@ function installQuestions () {
 		;;
 	esac
 	echo "Quelle version de MineWeb ?"
-	echo "   1) Master (1.8.3)"
+	echo "   1) Master (1.8.4)"
 	echo "   2) Développement (Dernière modifications possible, recommandé)"
 	until [[ "$MINEWEB_VERSION" =~ ^[1-5]$ ]]; do
 		read -rp "Version [1-2]: " -e -i 2 MINEWEB_VERSION
 	done
 	case $MINEWEB_VERSION in
 		1)
-			UNZIP="v1.8.3.zip"
-			MOVE="MineWebCMS-1.8.3"
-			MOVEZIP="v1.8.3.zip"
+			UNZIP="v1.8.4.zip"
+			MOVE="MineWebCMS-1.8.4"
+			MOVEZIP="v1.8.4.zip"
 		;;
 		2)
 			UNZIP="development"
@@ -236,7 +236,7 @@ function installMineWeb () {
 		    service apache2 restart
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.3.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.4.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -288,7 +288,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.3.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.4.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -339,7 +339,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.3.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.4.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -393,7 +393,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.3.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.4.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
@@ -447,7 +447,7 @@ function installMineWeb () {
 		    apt install zip -y
 		    rm -rf /var/www/html/
 			cd /var/wwww
-		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.3.zip
+		    wget https://github.com/MineWeb/MineWebCMS/archive/v1.8.4.zip
 		    wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
 		    mv $MOVEZIP /var/www/
 		    cd /var/www/
