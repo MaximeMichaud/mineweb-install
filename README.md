@@ -24,7 +24,7 @@ Le script supporte ces OS:
 ## Features
 * MySQL 5.6 à 8.0 (**ne pas prendre le SHA de _8.0_**)
 * PHP 5.6 à 7.4
-* phpMyAdmin 4.9.2
+* phpMyAdmin 4.9.3
 ## To-Do
 * Possibilité de choisir nginx au lieu de apache2
 * Ajout d'un message comme quoi l'installation est terminé
