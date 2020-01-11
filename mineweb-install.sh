@@ -89,7 +89,7 @@ function installQuestions () {
 	echo "${yellow}   3) PHP 7.1 "
 	echo "${green}   4) PHP 7.2 "
 	echo "   5) PHP 7.3 (recommandé) "
-	echo "   6) PHP 7.4 (${yellow}non supporté officiellement par phpMyAdmin)${normal}${cyan}"
+	echo "   6) PHP 7.4 ${normal}${cyan}"
 	until [[ "$PHP_VERSION" =~ ^[1-6]$ ]]; do
 		read -rp "Version [1-6]: " -e -i 5 PHP_VERSION
 	done
