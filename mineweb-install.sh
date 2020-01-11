@@ -86,9 +86,9 @@ function installQuestions () {
 	echo "${red}Rouge = Fin de vie ${yellow}Jaune = Sécurité uniquement ${green}Vert = Support & Sécurité"
 	echo "${red}   1) PHP 5.6 "
 	echo "   2) PHP 7.0 "
-	echo "${yellow}   3) PHP 7.1 "
-	echo "${green}   4) PHP 7.2 "
-	echo "   5) PHP 7.3 (recommandé) "
+	echo "${red}   3) PHP 7.1 "
+	echo "${yellow}   4) PHP 7.2 "
+	echo "${green}   5) PHP 7.3 (recommandé) "
 	echo "   6) PHP 7.4 ${normal}${cyan}"
 	until [[ "$PHP_VERSION" =~ ^[1-6]$ ]]; do
 		read -rp "Version [1-6]: " -e -i 5 PHP_VERSION
