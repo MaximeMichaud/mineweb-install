@@ -6,8 +6,6 @@ wget https://raw.githubusercontent.com/MaximeMichaud/mineweb-install/master/mine
 chmod +x mineweb-install.sh
 ./mineweb-install.sh
 ```
-[Indications concernant l'installation par 󠂪󠂪DarkScientist_](https://github.com/MaximeMichaud/mineweb-install/wiki/Tutoriel-par-%F3%A0%82%AA%F3%A0%82%AADarkScientist_)
-
 ## Compatibilité
 Veuillez considérer les dernières versions comme étant plus stable.
 
@@ -20,28 +18,13 @@ Le script supporte ces OS:
 | Debian 10 | ✅ |
 | Ubuntu 16.04 | ✅  |
 | Ubuntu 18.04 | ✅  |
+| Ubuntu 20.04 | ❌  |
 | CentOS 7 | ❌  |
 ## Features
 * MySQL 5.6 à 8.0 (**ne pas prendre le SHA de _8.0_**)
 * PHP 5.6 à 7.4
-* phpMyAdmin 4.9.3
+* phpMyAdmin 4.9.4
 ## To-Do
-* Possibilité de choisir nginx au lieu de apache2
-* Ajout d'un message comme quoi l'installation est terminé
-* ~Fonction pour mettre à jour phpMyAdmin~ & php
-* Let's Encrypt
-* Vérification une installation précédente (Sans script) a été tentée avec confirmation
-* Plus d'informations lors de l'installation (À la fin et pendant)
-* mysql_secure_installation (automatique)
-* Configuration MYSQL
-* Améliorer la configuration apache2 (check if apache2 installed first)
-* Update de sécurité automatique
-* Possibilité de upgrade de version PHP
-* Création de la base de donnée automatique sur demande
-* ~Support de CloudFlare~
-* Branch Dev ou Master (Confirmé, master porte les mêmes commits que la dernière release)
-* Précisé s'ils veulent update le host au début
-* Configuration automatique de l'utilisateur et du CMS à partir du script
-* ~~Supporté Debian 8, Ubuntu 16.04 & 18.04~~ (CentOS, seulement si demandé)
+https://github.com/MaximeMichaud/mineweb-install/projects/1
 ## FAQ
 **MERCI DE REGARDER LE [WIKI](https://github.com/MaximeMichaud/mineweb-install/wiki/FAQ)**
