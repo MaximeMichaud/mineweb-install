@@ -486,8 +486,8 @@ function manageMenu () {
 	echo "   3) Ajouter un certificat (https)"
 	echo "   4) Mettre à jour le script"
 	echo "   5) Quitter"
-	until [[ "$MENU_OPTION" =~ ^[1-4]$ ]]; do
-		read -rp "Sélectionner une option [1-4]: " MENU_OPTION
+	until [[ "$MENU_OPTION" =~ ^[1-5]$ ]]; do
+		read -rp "Sélectionner une option [1-5]: " MENU_OPTION
 	done
 
 	case $MENU_OPTION in
