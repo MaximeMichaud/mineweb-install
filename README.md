@@ -16,18 +16,19 @@ Le script supporte ces OS :
 
 |        |   |
 |--------|---|
-| Debian 8 | ❌  |
-| Debian 9 | ✅ |
-| Debian 10 | ✅ |
-| Ubuntu 16.04 | ✅  |
-| Ubuntu 18.04 | ✅  |
-| Ubuntu 20.04 | ❌  |
-| CentOS 7 | ❌  |
+| Debian 8 |❔|
+| Debian 9 |✅|
+| Debian 10 |✅|
+| Ubuntu 14.04 |✅|
+| Ubuntu 16.04 |✅|
+| Ubuntu 18.04 |✅|
+| Ubuntu 20.04 |✅|
+| CentOS 7 |❌|
 ## Features
 * MySQL 5.6 à 8.0 (**ne pas prendre le SHA de _8.0_**)
 * PHP 5.6 à 7.4
-* phpMyAdmin 4.9.4
+* phpMyAdmin 5.0.1
 ## To-Do
 https://github.com/MaximeMichaud/mineweb-install/projects/1
 ## FAQ
-**MERCI DE REGARDER LE [WIKI](https://github.com/MaximeMichaud/mineweb-install/wiki/FAQ)**
+**[WIKI](https://github.com/MaximeMichaud/Azuriom-install/wiki/)**
