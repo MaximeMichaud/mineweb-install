@@ -145,7 +145,6 @@ function installQuestions() {
   echo "Je dois vous poser quelques questions avant de commencer l'installation."
   echo "Vous pouvez laisser les options par défaut et appuyer simplement sur Entrée si cela vous convient."
   echo ""
-  echo "${alert}Veuillez sélectionner pour MYSQL : Use Legacy Authentication Method${normal}"
   echo "${cyan}Quelle version de PHP ?"
   echo "${red}Rouge = Fin de vie ${yellow}| Jaune = Sécurité uniquement ${green}| Vert = Support & Sécurité"
   echo "${yellow}   1) PHP 7.2 "
@@ -210,6 +209,7 @@ function aptinstall_apache2() {
 function aptinstall_mysql() {
   if [[ "$OS" =~ (debian|ubuntu) ]]; then
     echo "Installation MYSQL"
+    wget https://github.com/MaximeMichaud/Azuriom-install/blob/master/conf/default-auth-override.cnf -P /etc/mysql/mysql.conf.d
     if [[ "$VERSION_ID" == "9" ]]; then
       echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-8.0" >/etc/apt/sources.list.d/mysql.list
       echo "deb-src http://repo.mysql.com/apt/debian/ stretch mysql-8.0" >>/etc/apt/sources.list.d/mysql.list
@@ -318,7 +318,7 @@ function aptinstall_phpmyadmin() {
     randomBlowfishSecret=$(openssl rand -base64 32)
     sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php >config.inc.php
     wget https://raw.githubusercontent.com/MaximeMichaud/mineweb-install/master/conf/phpmyadmin.conf
-	ln -s /usr/share/phpmyadmin /var/www/phpmyadmin
+    ln -s /usr/share/phpmyadmin /var/www/phpmyadmin
     mv phpmyadmin.conf /etc/apache2/sites-available/
     a2ensite phpmyadmin
     systemctl restart apache2
