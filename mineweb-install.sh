@@ -369,7 +369,10 @@ function autoUpdate() {
 }
 
 function setupdone() {
+  IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
   echo "C'est terminé !"
+  echo "MineWeb : http://$IP/"
+  echo "phpMyAdmin: http://$IP/phpmyadmin"
 }
 function manageMenu() {
   clear
