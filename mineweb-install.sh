@@ -348,11 +348,11 @@ function aptinstall_phpmyadmin() {
 
 function install_mineweb() {
   rm -rf /var/www/html/
-  cd /var/wwww
+  cd /var/www || exit
   wget https://github.com/MineWeb/MineWebCMS/archive/v$MINEWEB_VER.zip
   wget https://github.com/MineWeb/MineWebCMS/archive/development.zip
   mv $MOVEZIP /var/www/
-  cd /var/www/
+  cd /var/www/ || exit
   unzip -q $UNZIP
   rm -rf v$MINEWEB_VER.zip
   rm -rf development.zip
