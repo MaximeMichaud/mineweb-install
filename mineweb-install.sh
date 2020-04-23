@@ -226,8 +226,8 @@ function aptinstall_mysql() {
       apt-get install --allow-unauthenticated mysql-server mysql-client -y
       systemctl enable mysql && systemctl start mysql
     fi
-	if [[ "$VERSION_ID" == "11" ]]; then
-	  # not available right now
+    if [[ "$VERSION_ID" == "11" ]]; then
+      # not available right now
       echo "deb http://repo.mysql.com/apt/debian/ bullseye mysql-8.0" >/etc/apt/sources.list.d/mysql.list
       echo "deb-src http://repo.mysql.com/apt/debian/ bullseye mysql-8.0" >>/etc/apt/sources.list.d/mysql.list
       apt-key adv --keyserver keys.gnupg.net --recv-keys 8C718D3B5072E1F5
@@ -282,14 +282,15 @@ function aptinstall_php() {
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
     fi
-	if [[ "$VERSION_ID" == "11" ]]; then
-	  # not available right now
+    if [[ "$VERSION_ID" == "11" ]]; then
+      # not available right now
       echo "deb https://packages.sury.org/php/ bullseye main" | tee /etc/apt/sources.list.d/php.list
       apt-get update >/dev/null
       apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
+    fi
     if [[ "$VERSION_ID" == "16.04" ]]; then
       add-apt-repository -y ppa:ondrej/php
       apt-get update >/dev/null
@@ -327,9 +328,9 @@ function aptinstall_phpmyadmin() {
     mv phpMyAdmin-$PHPMYADMIN_VER-all-languages/* /usr/share/phpmyadmin
     rm /usr/share/phpmyadmin/phpMyAdmin-$PHPMYADMIN_VER-all-languages.tar.gz
     rm -rf /usr/share/phpmyadmin/phpMyAdmin-$PHPMYADMIN_VER-all-languages
-	# Create TempDir
+    # Create TempDir
     mkdir /usr/share/phpmyadmin/tmp || exit
-	chown www-data:www-data /usr/share/phpmyadmin/tmp
+    chown www-data:www-data /usr/share/phpmyadmin/tmp
     chmod 700 /usr/share/phpmyadmin/tmp
     randomBlowfishSecret=$(openssl rand -base64 32)
     sed -e "s|cfg\['blowfish_secret'\] = ''|cfg['blowfish_secret'] = '$randomBlowfishSecret'|" config.sample.inc.php >config.inc.php
