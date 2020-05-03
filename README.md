@@ -27,7 +27,7 @@ Le script supporte ces OS :
 | CentOS 7 |❌|
 ## Features
 * MySQL 5.7 à 8.0
-* PHP 5.6 à 7.4
+* PHP 7.2 à 7.4
 * phpMyAdmin 5.0.2
 ## To-Do
 https://github.com/MaximeMichaud/mineweb-install/projects/1
