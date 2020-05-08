@@ -69,7 +69,7 @@ function initialCheck() {
 
 # Define versions
 PHPMYADMIN_VER=5.0.2
-MINEWEB_VER=1.10.0
+MINEWEB_VER=1.10.1
 
 function checkOS() {
   if [[ -e /etc/debian_version ]]; then
