@@ -147,11 +147,10 @@ function installQuestions() {
   echo ""
   echo "${cyan}Quelle version de PHP ?"
   echo "${red}Rouge = Fin de vie ${yellow}| Jaune = Sécurité uniquement ${green}| Vert = Support & Sécurité"
-  echo "${yellow}   1) PHP 7.2 "
-  echo "${green}   2) PHP 7.3 "
-  echo "   3) PHP 7.4 (recommandé) ${normal}${cyan}"
-  until [[ "$PHP_VERSION" =~ ^[1-3]$ ]]; do
-    read -rp "Version [1-3]: " -e -i 3 PHP_VERSION
+  echo "${green}   1) PHP 7.3 "
+  echo "   2) PHP 7.4 (recommandé) ${normal}${cyan}"
+  until [[ "$PHP_VERSION" =~ ^[1-2]$ ]]; do
+    read -rp "Version [1-2]: " -e -i 2 PHP_VERSION
   done
   case $PHP_VERSION in
   1)
