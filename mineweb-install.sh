@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# [Script d'installation automatique sur Linux pour MineWeb-install]
+# [Script d'installation automatique sur Linux pour MineWeb]
 #
 # GitHub : https://github.com/MaximeMichaud/mineweb-install
-# URL : https://mineweb.org/
+# URL : https://mineweb.org
 #
 # Ce script est destiné à une installation rapide et facile :
 # wget https://github.com/MaximeMichaud/mineweb-install/master/mineweb-install.sh
