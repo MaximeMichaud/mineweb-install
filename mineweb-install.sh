@@ -253,7 +253,7 @@ function aptinstall_php() {
     if [[ "$VERSION_ID" == "9" ]]; then
       echo "deb https://packages.sury.org/php/ stretch main" | tee /etc/apt/sources.list.d/php.list
       apt-get update >/dev/null
-      apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
+      apt-get install php$PHP php$PHP-bcmath php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
@@ -261,7 +261,7 @@ function aptinstall_php() {
     if [[ "$VERSION_ID" == "10" ]]; then
       echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list
       apt-get update >/dev/null
-      apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
+      apt-get install php$PHP php$PHP-bcmath php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
@@ -270,7 +270,7 @@ function aptinstall_php() {
       # not available right now
       echo "deb https://packages.sury.org/php/ buster main" | tee /etc/apt/sources.list.d/php.list
       apt-get update >/dev/null
-      apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
+      apt-get install php$PHP php$PHP-bcmath php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
@@ -278,7 +278,7 @@ function aptinstall_php() {
     if [[ "$VERSION_ID" == "16.04" ]]; then
       add-apt-repository -y ppa:ondrej/php
       apt-get update >/dev/null
-      apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
+      apt-get install php$PHP php$PHP-bcmath php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
@@ -286,7 +286,7 @@ function aptinstall_php() {
     if [[ "$VERSION_ID" == "18.04" ]]; then
       add-apt-repository -y ppa:ondrej/php
       apt-get update >/dev/null
-      apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
+      apt-get install php$PHP php$PHP-bcmath php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
@@ -294,7 +294,7 @@ function aptinstall_php() {
     if [[ "$VERSION_ID" == "20.04" ]]; then
       add-apt-repository -y ppa:ondrej/php
       apt-get update >/dev/null
-      apt-get install php$PHP php$PHP-bcmath php$PHP-json php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
+      apt-get install php$PHP php$PHP-bcmath php$PHP-mbstring php$PHP-common php$PHP-xml php$PHP-curl php$PHP-gd php$PHP-zip php$PHP-mysql php$PHP-sqlite -y
       sed -i 's|upload_max_filesize = 2M|upload_max_filesize = 50M|' /etc/php/$PHP/apache2/php.ini
       sed -i 's|post_max_size = 8M|post_max_size = 50M|' /etc/php/$PHP/apache2/php.ini
       systemctl restart apache2
