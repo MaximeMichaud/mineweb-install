@@ -5,12 +5,12 @@ on:
     - cron: "*/5 * * * *"
 
 jobs:
-  action-update-license-year:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: FantasticFiasco/action-update-license-year@v2
-        with:
-          token: ${{ secrets.MAXIMEMICHAUD_COPYRIGHTUPDATE }}
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: FantasticFiasco/action-update-license-year@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
