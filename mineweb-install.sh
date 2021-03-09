@@ -10,7 +10,7 @@
 # chmod +x mineweb-install.sh
 # ./mineweb-install.sh
 #
-# MineWeb-install Copyright (c) 2019-2020 Maxime Michaud
+# MineWeb-install Copyright (c) 2019-2021 Maxime Michaud
 # Licensed under MIT License
 #
 #   Permission is hereby granted, free of charge, to any person obtaining a copy
