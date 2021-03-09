@@ -56,7 +56,7 @@ function initialCheck() {
 }
 
 # Define versions
-PHPMYADMIN_VER=5.0.4
+PHPMYADMIN_VER=5.1.0
 MINEWEB_VER=1.12.0
 
 function checkOS() {
