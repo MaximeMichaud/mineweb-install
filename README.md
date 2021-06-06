@@ -5,7 +5,7 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://github.com/MaximeMichaud/mineweb-install/blob/master/LICENSE)
 ## Usage
 ```sh
-wget https://raw.githubusercontent.com/MaximeMichaud/mineweb-install/master/mineweb-install.sh
+curl -O https://raw.githubusercontent.com/MaximeMichaud/mineweb-install/master/mineweb-install.sh
 chmod +x mineweb-install.sh
 ./mineweb-install.sh
 ```
@@ -24,12 +24,13 @@ Le script supporte ces OS :
 | Ubuntu 16.04            |✅     |
 | Ubuntu 18.04            |✅     |
 | Ubuntu 20.04            |✅     |
+| Ubuntu 21.04            |❌     |
 | CentOS 7                |❌     |
 | CentOS 8                |❌     |
 ## Features
-* MySQL 5.7 à 8.0
+* MySQL 5.7 ou 8.0
 * PHP 7.3 à 7.4
-* phpMyAdmin 5.1.0
+* phpMyAdmin 5.1.1
 ## To-Do
 https://github.com/MaximeMichaud/mineweb-install/projects/1
 ## FAQ
