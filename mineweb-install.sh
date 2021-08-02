@@ -294,7 +294,8 @@ function install_mineweb() {
   rm -rf v$MINEWEB_VER.zip
   rm -rf development.zip
   mv $MOVE /var/www/html
-  chmod -R 777 /var/www/html
+  chmod -R 755 /var/www/html
+  chown -R www-data:www-data /var/www/html
 }
 
 function autoUpdate() {
